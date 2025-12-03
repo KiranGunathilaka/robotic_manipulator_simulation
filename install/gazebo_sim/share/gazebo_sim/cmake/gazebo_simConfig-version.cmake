@@ -1,0 +1,1 @@
+/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/ament_cmake_core/gazebo_simConfig-version.cmake

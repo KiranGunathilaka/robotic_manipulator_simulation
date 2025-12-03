@@ -21,11 +21,11 @@ def generate_launch_description():
     # --- Paths ---
 
     desc_share = get_package_share_directory('gp7_robot')
-    sim_share = get_package_share_directory('robot_sim')
+    sim_share = get_package_share_directory('gazebo_sim')
     ros_gz_sim_share = get_package_share_directory('ros_gz_sim')
 
     urdf_path = os.path.join(desc_share, 'urdf', 'gp7_robot.urdf')
-    world_path = os.path.join(sim_share, 'worlds', 'classroom.sdf')
+    world_path = os.path.join(sim_share, 'worlds', 'gp7_world.sdf')
 
     # --- URDF / TF ---
     robot_description = ParameterValue(
@@ -72,13 +72,13 @@ def generate_launch_description():
         name='spawn_gp7_robot',
         output='screen',
         arguments=[
-            '-world', 'classroom_world',
+            '-world', 'gp7_world',
             '-file', urdf_path,
             '-name', 'gp7_robot',
-            '-x', '2.0',
-            '-y', '-3.0',
-            '-z', '0.1',
-            '-Y', '1.57'
+            '-x', '.0',
+            '-y', '0.0',
+            '-z', '0.0',
+            '-Y', '0.0'
         ]
     )
 

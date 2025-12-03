@@ -17,7 +17,7 @@ echo ">>> Sourcing workspace overlay"
 source "$WS/install/setup.sh"
 
 echo ">>> Setting Gazebo model path"
-PREFIX=$(ros2 pkg prefix robot_description)
+PREFIX=$(ros2 pkg prefix gp7_robot)
 export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:$PREFIX/share
 
 echo ">>> Gazebo path now:"

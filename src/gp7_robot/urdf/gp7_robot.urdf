@@ -4,14 +4,19 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="gp7_robot">
-  <link
-    name="base_link">
+
+  <link name="world"/>
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Your original base_link definition starts here -->
+  <link name="base_link">
     <inertial>
-      <origin
-        xyz="-0.0061643 6.0941E-07 0.083158"
-        rpy="0 0 0" />
-      <mass
-        value="5.2154" />
+      <origin xyz="-0.0061643 6.0941E-07 0.083158" rpy="0 0 0" />
+      <mass value="5.2154" />
       <inertia
         ixx="0.026026"
         ixy="-2.5924E-05"
@@ -21,26 +26,18 @@
         izz="0.021721" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gp7_robot/meshes/base_link.STL" />
+        <mesh filename="package://gp7_robot/meshes/base_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="1 0 0 1" />
+      <material name="">
+        <color rgba="1 0 0 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gp7_robot/meshes/base_link.STL" />
+        <mesh filename="package://gp7_robot/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -392,7 +389,7 @@
     <axis
       xyz="0 0 1" />
   </joint>
-  <link
+  <!-- <link
     name="finger1_link">
     <inertial>
       <origin
@@ -507,5 +504,11 @@
       upper="0"
       effort="0"
       velocity="0" />
-  </joint>
+  </joint> -->
+
+  <gazebo>
+  <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+    <parameters>$(find gp7_robot)/config/gp7_ros2_control.yaml</parameters>
+  </plugin>
+</gazebo>
 </robot>
