@@ -1,0 +1,68 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/lib/ccache/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found robot_state_publisher: 3.3.3 (/opt/ros/jazzy/share/robot_state_publisher/cmake)
+-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found xacro: 2.0.13 (/opt/ros/jazzy/share/xacro/cmake)
+-- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Configured 'flake8' exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (1.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/urdf/gp7_robot.csv
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/urdf/gp7_robot.urdf
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/EE.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/base_link.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/finger1_link.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/finger2_link.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link1.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link2.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link3.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link4.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link5.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/config/joint_names_AEP_Robot.yaml
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/config/rviz/gp7_robot.rviz
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/launch/display_gazebo.launch.py
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/launch/display_rviz2.launch.py
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/model.config
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/ament_index/resource_index/package_run_dependencies/gp7_robot
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/ament_index/resource_index/parent_prefix_path/gp7_robot
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/environment/ament_prefix_path.sh
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/environment/ament_prefix_path.dsv
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/environment/path.sh
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/environment/path.dsv
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/local_setup.bash
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/local_setup.sh
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/local_setup.zsh
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/local_setup.dsv
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/package.dsv
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/ament_index/resource_index/packages/gp7_robot
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/cmake/gp7_robotConfig.cmake
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/cmake/gp7_robotConfig-version.cmake
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/package.xml

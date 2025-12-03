@@ -1,0 +1,4 @@
+source;share/gp7_robot/local_setup.bash
+source;share/gp7_robot/local_setup.dsv
+source;share/gp7_robot/local_setup.sh
+source;share/gp7_robot/local_setup.zsh
