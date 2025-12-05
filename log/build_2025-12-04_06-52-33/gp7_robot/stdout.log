@@ -46,6 +46,7 @@
 -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link3.STL
 -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link4.STL
 -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link5.STL
+-- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/config/gp7_controllers.yaml
 -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/config/joint_names_AEP_Robot.yaml
 -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/config/rviz/gp7_robot.rviz
 -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/launch/display_gazebo.launch.py
