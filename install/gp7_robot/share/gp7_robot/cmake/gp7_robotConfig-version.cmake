@@ -1,1 +1,0 @@
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot/ament_cmake_core/gp7_robotConfig-version.cmake

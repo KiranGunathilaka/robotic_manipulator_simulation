@@ -1,1 +1,0 @@
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/src/gp7_robot/launch/display_rviz2.launch.py

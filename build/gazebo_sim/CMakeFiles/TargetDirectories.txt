@@ -1,9 +1,0 @@
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/uninstall.dir
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/gazebo_sim_uninstall.dir
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/test.dir
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/edit_cache.dir
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/rebuild_cache.dir
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/list_install_components.dir
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/install.dir
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/install/local.dir
-/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gazebo_sim/CMakeFiles/install/strip.dir
