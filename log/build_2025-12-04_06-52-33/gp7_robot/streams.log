@@ -1,0 +1,75 @@
+[0.009s] Invoking command in '/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/src/gp7_robot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot
+[0.055s] -- The C compiler identification is GNU 13.3.0
+[0.106s] -- The CXX compiler identification is GNU 13.3.0
+[0.122s] -- Detecting C compiler ABI info
+[0.186s] -- Detecting C compiler ABI info - done
+[0.195s] -- Check for working C compiler: /usr/lib/ccache/cc - skipped
+[0.196s] -- Detecting C compile features
+[0.196s] -- Detecting C compile features - done
+[0.210s] -- Detecting CXX compiler ABI info
+[0.288s] -- Detecting CXX compiler ABI info - done
+[0.297s] -- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+[0.297s] -- Detecting CXX compile features
+[0.298s] -- Detecting CXX compile features - done
+[0.301s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.434s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.499s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.538s] -- Found robot_state_publisher: 3.3.3 (/opt/ros/jazzy/share/robot_state_publisher/cmake)
+[0.582s] -- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.596s] -- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.614s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.632s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.727s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.730s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.799s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.819s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.838s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.129s] -- Found xacro: 2.0.13 (/opt/ros/jazzy/share/xacro/cmake)
+[1.132s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.223s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.223s] -- Configured 'flake8' exclude dirs and/or files: 
+[1.224s] -- Added test 'lint_cmake' to check CMake code style
+[1.225s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.226s] -- Added test 'xmllint' to check XML markup files
+[1.228s] -- Configuring done (1.2s)
+[1.232s] -- Generating done (0.0s)
+[1.234s] -- Build files have been written to: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot
+[1.243s] Invoked command in '/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/src/gp7_robot -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot
+[1.244s] Invoking command in '/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot -- -j12 -l12
+[1.275s] Invoked command in '/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot -- -j12 -l12
+[1.283s] Invoking command in '/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot
+[1.288s] -- Install configuration: ""
+[1.289s] -- Execute custom install script
+[1.289s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/urdf/gp7_robot.csv
+[1.296s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/urdf/gp7_robot.urdf
+[1.304s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/EE.STL
+[1.311s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/base_link.STL
+[1.318s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/finger1_link.STL
+[1.325s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/finger2_link.STL
+[1.331s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link1.STL
+[1.338s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link2.STL
+[1.344s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link3.STL
+[1.351s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link4.STL
+[1.357s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/meshes/link5.STL
+[1.364s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/config/gp7_controllers.yaml
+[1.371s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/config/joint_names_AEP_Robot.yaml
+[1.378s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/config/rviz/gp7_robot.rviz
+[1.385s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/launch/display_gazebo.launch.py
+[1.391s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/launch/display_rviz2.launch.py
+[1.398s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/model.config
+[1.405s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/ament_index/resource_index/package_run_dependencies/gp7_robot
+[1.413s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/ament_index/resource_index/parent_prefix_path/gp7_robot
+[1.419s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/environment/ament_prefix_path.sh
+[1.426s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/environment/ament_prefix_path.dsv
+[1.432s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/environment/path.sh
+[1.438s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/environment/path.dsv
+[1.445s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/local_setup.bash
+[1.451s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/local_setup.sh
+[1.458s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/local_setup.zsh
+[1.464s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/local_setup.dsv
+[1.471s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/package.dsv
+[1.477s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/ament_index/resource_index/packages/gp7_robot
+[1.484s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/cmake/gp7_robotConfig.cmake
+[1.491s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/cmake/gp7_robotConfig-version.cmake
+[1.497s] -- Symlinking: /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/install/gp7_robot/share/gp7_robot/package.xml
+[1.506s] Invoked command in '/home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kiran_gunathilaka/development/ros/robotic_manipulator_simulation/build/gp7_robot

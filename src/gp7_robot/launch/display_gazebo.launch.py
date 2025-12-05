@@ -73,7 +73,7 @@ def generate_launch_description():
         output='screen',
         arguments=[
             '-world', 'gp7_world',
-            '-file', urdf_path,
+            '-topic', 'robot_description',
             '-name', 'gp7_robot',
             '-x', '.0',
             '-y', '0.0',
