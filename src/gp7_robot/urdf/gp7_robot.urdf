@@ -64,11 +64,15 @@
     <child link="base_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-  <!-- Your original base_link definition starts here -->
-  <link name="base_link">
+
+  <link
+    name="base_link">
     <inertial>
-      <origin xyz="-0.0061643 6.0941E-07 0.083158" rpy="0 0 0" />
-      <mass value="5.2154" />
+      <origin
+        xyz="-0.0061643 6.0941E-07 0.083158"
+        rpy="0 0 0" />
+      <mass
+        value="5.2154" />
       <inertia
         ixx="0.026026"
         ixy="-2.5924E-05"
@@ -78,18 +82,26 @@
         izz="0.021721" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/base_link.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/base_link.STL" />
       </geometry>
-      <material name="">
-        <color rgba="1 0 0 1" />
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/base_link.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -97,16 +109,16 @@
     name="link1">
     <inertial>
       <origin
-        xyz="0.015549 -0.0019593 0.095449"
+        xyz="0.015672 2.2615E-06 0.095449"
         rpy="0 0 0" />
       <mass
         value="2.9447" />
       <inertia
-        ixx="0.011192"
-        ixy="9.0245E-05"
-        ixz="-0.0021643"
-        iyy="0.011936"
-        iyz="0.00025509"
+        ixx="0.011181"
+        ixy="-4.9786E-06"
+        ixz="-0.0021792"
+        iyy="0.011947"
+        iyz="-1.7792E-05"
         izz="0.0088687" />
     </inertial>
     <visual>
@@ -137,7 +149,7 @@
     name="joint1"
     type="revolute">
     <origin
-      xyz="-0.000595342695521883 0 0.1829"
+      xyz="-0.00059534 0 0.1829"
       rpy="0 0 0" />
     <parent
       link="base_link" />
@@ -156,16 +168,16 @@
     name="link2">
     <inertial>
       <origin
-        xyz="0.098772 0.17038 -0.071798"
+        xyz="0.027625 0.19499 0.00020191"
         rpy="0 0 0" />
       <mass
         value="6.2405" />
       <inertia
-        ixx="0.11256"
-        ixy="-0.034136"
-        ixz="-0.00014143"
-        iyy="0.041497"
-        iyz="-0.0004635"
+        ixx="0.1263"
+        ixy="0.00019256"
+        ixz="4.291E-05"
+        iyy="0.027757"
+        iyz="-0.00048284"
         izz="0.11052" />
     </inertial>
     <visual>
@@ -196,8 +208,8 @@
     name="joint2"
     type="revolute">
     <origin
-      xyz="0.0481152180218847 0.0668500247537757 0.135500000000094"
-      rpy="1.57079632679473 0 3.0248336337098" />
+      xyz="0.039998 0.00034906 0.1355"
+      rpy="1.5708 0 -3.1329" />
     <parent
       link="link1" />
     <child
@@ -215,16 +227,16 @@
     name="link3">
     <inertial>
       <origin
-        xyz="-0.024876 0.006034 -0.072854"
+        xyz="-0.020055 0.015909 -0.00085391"
         rpy="0 0 0" />
       <mass
         value="2.8492" />
       <inertia
-        ixx="0.0078502"
-        ixy="-0.0010799"
-        ixz="4.7231E-05"
-        iyy="0.0073158"
-        iyz="-1.0093E-05"
+        ixx="0.0069342"
+        ixy="-0.00090367"
+        ixz="3.8644E-05"
+        iyy="0.0082319"
+        iyz="-2.8966E-05"
         izz="0.0077915" />
     </inertial>
     <visual>
@@ -255,8 +267,8 @@
     name="joint3"
     type="revolute">
     <origin
-      xyz="0.166975951159858 0.412485189717141 0"
-      rpy="0 0 -1.57079632679492" />
+      xyz="0 0.445 0"
+      rpy="0 0 -1.5708" />
     <parent
       link="link2" />
     <child
@@ -274,17 +286,17 @@
     name="link4">
     <inertial>
       <origin
-        xyz="0.00013611 0.0001738 0.16677"
+        xyz="-0.00015773 0.00015216 0.16677"
         rpy="0 0 0" />
       <mass
         value="2.7554" />
       <inertia
-        ixx="0.010092"
-        ixy="-7.0814E-05"
-        ixz="-3.5239E-05"
-        iyy="0.010778"
-        iyz="0.00031664"
-        izz="0.0030859" />
+        ixx="0.010785"
+        ixy="2.488E-06"
+        ixz="-0.00031861"
+        iyy="0.010085"
+        iyz="-4.0001E-06"
+        izz="0.0030857" />
     </inertial>
     <visual>
       <origin
@@ -314,8 +326,8 @@
     name="joint4"
     type="revolute">
     <origin
-      xyz="-0.00319297470642954 -0.0884918352576554 -0.0720000000000005"
-      rpy="-1.57079632679483 -0.272786020633957 -2.70896107573833" />
+      xyz="-0.04 -0.079 0"
+      rpy="1.5708 1.5708 0" />
     <parent
       link="link3" />
     <child
@@ -333,14 +345,14 @@
     name="link5">
     <inertial>
       <origin
-        xyz="0.0002539 0.01321 -0.015248"
+        xyz="0.00025391 0.01321 -0.0017485"
         rpy="0 0 0" />
       <mass
         value="0.24589" />
       <inertia
         ixx="0.00013953"
-        ixy="-2.1178E-06"
-        ixz="1.9621E-07"
+        ixy="-2.1177E-06"
+        ixz="1.9619E-07"
         iyy="0.00015684"
         iyz="-1.2921E-06"
         izz="0.00018562" />
@@ -373,8 +385,8 @@
     name="joint5"
     type="revolute">
     <origin
-      xyz="-0.00132428368504911 0.0134348901237163 0.361000000001776"
-      rpy="1.57079632679489 0.0421986683723227 -3.04333955815242" />
+      xyz="0 0 0.361"
+      rpy="1.5708 0 -1.5708" />
     <parent
       link="link4" />
     <child
@@ -392,17 +404,17 @@
     name="EE">
     <inertial>
       <origin
-        xyz="-0.0017106 -0.0011481 0.049992"
+        xyz="-3.8273E-05 2.3469E-05 0.033407"
         rpy="0 0 0" />
       <mass
-        value="0.12078" />
+        value="0.13667" />
       <inertia
-        ixx="3.8972E-05"
-        ixy="-2.7372E-06"
-        ixz="-2.0092E-06"
-        iyy="4.0598E-05"
-        iyz="-1.6891E-06"
-        izz="4.5899E-05" />
+        ixx="5.2643E-05"
+        ixy="1.8623E-07"
+        ixz="-2.5485E-07"
+        iyy="5.3828E-05"
+        iyz="3.6556E-08"
+        izz="5.4993E-05" />
     </inertial>
     <visual>
       <origin
@@ -415,7 +427,7 @@
       <material
         name="">
         <color
-          rgba="0.5 0.5 0.5 1" />
+          rgba="0.6 0.6 0.6 1" />
       </material>
     </visual>
     <collision>
@@ -432,8 +444,8 @@
     name="joint6"
     type="continuous">
     <origin
-      xyz="0 0.0674999999997865 -0.0134999999999023"
-      rpy="1.57079632697687 1.39265583816902 -3.14159265335474" />
+      xyz="0 0.0675 0"
+      rpy="1.5708 -1.5708 0" />
     <parent
       link="link5" />
     <child
@@ -441,5 +453,120 @@
     <axis
       xyz="0 0 1" />
   </joint>
-
+  <link
+    name="finger1_link">
+    <inertial>
+      <origin
+        xyz="0.014816 -0.016407 -0.0019684"
+        rpy="0 0 0" />
+      <mass
+        value="0.0047666" />
+      <inertia
+        ixx="3.8953E-07"
+        ixy="-4.7926E-08"
+        ixz="6.1793E-09"
+        iyy="8.1996E-07"
+        iyz="5.3332E-08"
+        izz="1.1669E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp7_robot/meshes/finger1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp7_robot/meshes/finger1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.012828 0.0074919 0.1"
+      rpy="1.5708 -1.5621 -3.1416" />
+    <parent
+      link="EE" />
+    <child
+      link="finger1_link" />
+    <axis
+      xyz="0.0012983 0.14877 0.98887" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="finger2_link">
+    <inertial>
+      <origin
+        xyz="0.0164405516950697 0.0126063952456568 -0.00633123580787176"
+        rpy="0 0 0" />
+      <mass
+        value="0.00476659381411143" />
+      <inertia
+        ixx="4.22662847435983E-07"
+        ixy="1.25500043079123E-07"
+        ixz="-1.98688342991039E-08"
+        iyy="7.87633926369506E-07"
+        iyz="5.84231471953572E-08"
+        izz="1.16605068363655E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp7_robot/meshes/finger2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gp7_robot/meshes/finger2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger2_joint"
+    type="revolute">
+    <origin
+      xyz="0.014465 0.0033856 0.1"
+      rpy="1.5708 -1.5621 -3.1416" />
+    <parent
+      link="EE" />
+    <child
+      link="finger2_link" />
+    <axis
+      xyz="0.0012983 0.14877 0.98887" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
 </robot>
