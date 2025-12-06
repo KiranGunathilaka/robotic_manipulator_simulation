@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Merged GP7 URDF: DH-corrected geometry (from new export) + plugins,
-     ros2_control, limits, dynamics, friction, and finger collisions from old tuned file. -->
-<robot name="gp7_robot">
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="gp7_robot">
 
-  <!-- Gazebo ROS 2 control plugin -->
   <gazebo>
     <plugin
       filename="libgz_ros2_control-system.so"
@@ -20,7 +21,6 @@
     <collision_detector>bullet</collision_detector>
   </gazebo>
 
-  <!-- ros2_control system hardware description -->
   <ros2_control name="GazeboSimSystem" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
@@ -74,8 +74,7 @@
       <state_interface name="effort"/>
     </joint>
   </ros2_control>
-
-  <!-- World frame -->
+  
   <link name="world"/>
   <joint name="world_to_base" type="fixed">
     <parent link="world"/>
@@ -83,11 +82,14 @@
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
-  <!-- BASE LINK -->
-  <link name="base_link">
+  <link
+    name="base_link">
     <inertial>
-      <origin xyz="-0.0061643 6.0941E-07 0.083158" rpy="0 0 0" />
-      <mass value="5.2154" />
+      <origin
+        xyz="-0.0061643 6.0941E-07 0.083158"
+        rpy="0 0 0" />
+      <mass
+        value="5.2154" />
       <inertia
         ixx="0.026026"
         ixy="-2.5924E-05"
@@ -97,19 +99,27 @@
         izz="0.021721" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/base_link.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/base_link.STL" />
       </geometry>
-      <material name="">
-        <color rgba="1 0 0 1" />
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
       </material>
     </visual>
     <!-- Use mesh as approximate convex collision -->
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/base_link.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/base_link.STL" />
       </geometry>
       <surface>
         <friction>
@@ -119,11 +129,14 @@
     </collision>
   </link>
 
-  <!-- LINK 1 -->
-  <link name="link1">
+  <link
+    name="link1">
     <inertial>
-      <origin xyz="0.015672 2.2615E-06 0.095449" rpy="0 0 0" />
-      <mass value="2.9447" />
+      <origin
+        xyz="0.015672 2.2615E-06 0.095449"
+        rpy="0 0 0" />
+      <mass
+        value="2.9447" />
       <inertia
         ixx="0.011181"
         ixy="-4.9786E-06"
@@ -133,18 +146,26 @@
         izz="0.0088687" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link1.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link1.STL" />
       </geometry>
-      <material name="">
-        <color rgba="0 1 0 1" />
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link1.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link1.STL" />
       </geometry>
       <surface>
         <friction>
@@ -154,11 +175,18 @@
     </collision>
   </link>
 
-  <joint name="joint1" type="revolute">
-    <origin xyz="-0.00059534 0 0.1829" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="link1" />
-    <axis xyz="0 0 1" />
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="-0.00059534 0 0.1829"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 0 1" />
     <!-- S axis: ±170°, 375 °/s -->
     <limit
       lower="-2.96706"
@@ -168,11 +196,14 @@
     <dynamics damping="3.0" friction="0.5"/>
   </joint>
 
-  <!-- LINK 2 -->
-  <link name="link2">
+  <link
+    name="link2">
     <inertial>
-      <origin xyz="0.027625 0.19499 0.00020191" rpy="0 0 0" />
-      <mass value="6.2405" />
+      <origin
+        xyz="0.027625 0.19499 0.00020191"
+        rpy="0 0 0" />
+      <mass
+        value="6.2405" />
       <inertia
         ixx="0.1263"
         ixy="0.00019256"
@@ -182,18 +213,26 @@
         izz="0.11052" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link2.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link2.STL" />
       </geometry>
-      <material name="">
-        <color rgba="0 0 1 1" />
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link2.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link2.STL" />
       </geometry>
       <surface>
         <friction>
@@ -203,11 +242,18 @@
     </collision>
   </link>
 
-  <joint name="joint2" type="revolute">
-    <origin xyz="0.039998 0.00034906 0.1355" rpy="1.5708 0 -3.1329" />
-    <parent link="link1" />
-    <child link="link2" />
-    <axis xyz="0 0 1" />
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0.039998 0.00034906 0.1355"
+      rpy="1.5708 0 -3.1329" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 1" />
     <!-- L axis: +145° / -65°, 315 °/s -->
     <limit
       lower="-1.13446"
@@ -217,11 +263,14 @@
     <dynamics damping="3.0" friction="0.5"/>
   </joint>
 
-  <!-- LINK 3 -->
-  <link name="link3">
+  <link
+    name="link3">
     <inertial>
-      <origin xyz="-0.020055 0.015909 -0.00085391" rpy="0 0 0" />
-      <mass value="2.8492" />
+      <origin
+        xyz="-0.020055 0.015909 -0.00085391"
+        rpy="0 0 0" />
+      <mass
+        value="2.8492" />
       <inertia
         ixx="0.0069342"
         ixy="-0.00090367"
@@ -231,18 +280,26 @@
         izz="0.0077915" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link3.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link3.STL" />
       </geometry>
-      <material name="">
-        <color rgba="1 1 0 1" />
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link3.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link3.STL" />
       </geometry>
       <surface>
         <friction>
@@ -252,11 +309,18 @@
     </collision>
   </link>
 
-  <joint name="joint3" type="revolute">
-    <origin xyz="0 0.445 0" rpy="0 0 -1.5708" />
-    <parent link="link2" />
-    <child link="link3" />
-    <axis xyz="0 0 -1" />
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.445 0"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="-0 -0 -1" />
     <!-- U axis: +190° / -70°, 410 °/s -->
     <limit
       lower="-1.22173"
@@ -266,33 +330,43 @@
     <dynamics damping="3.0" friction="0.5"/>
   </joint>
 
-  <!-- LINK 4 -->
-  <link name="link4">
+  <link
+    name="link4">
     <inertial>
-      <!-- from new export (DH-corrected) -->
-      <origin xyz="0.00015216 -0.00046619 0.24576" rpy="0 0 0" />
-      <mass value="2.7554" />
+      <origin
+        xyz="-0.00015773 0.00015216 0.16677"
+        rpy="0 0 0" />
+      <mass
+        value="2.7554" />
       <inertia
-        ixx="0.010085"
-        ixy="-2.488E-06"
-        ixz="-4.0001E-06"
-        iyy="0.010785"
-        iyz="0.00031861"
+        ixx="0.010785"
+        ixy="2.488E-06"
+        ixz="-0.00031861"
+        iyy="0.010085"
+        iyz="-4.0001E-06"
         izz="0.0030857" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link4.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link4.STL" />
       </geometry>
-      <material name="">
-        <color rgba="1 0 1 1" />
+      <material
+        name="">
+        <color
+          rgba="1 0 1 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link4.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link4.STL" />
       </geometry>
       <surface>
         <friction>
@@ -302,12 +376,18 @@
     </collision>
   </link>
 
-  <joint name="joint4" type="revolute">
-    <!-- origin from DH-corrected export -->
-    <origin xyz="-0.04 0 0.00062392" rpy="1.5708 0 0" />
-    <parent link="link3" />
-    <child link="link4" />
-    <axis xyz="0 0 1" />
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="-0.04 -0.079 0"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 0 1" />
     <!-- R axis: ±190°, 550 °/s -->
     <limit
       lower="-3.31613"
@@ -317,33 +397,43 @@
     <dynamics damping="1.5" friction="0.3"/>
   </joint>
 
-  <!-- LINK 5 -->
-  <link name="link5">
+  <link
+    name="link5">
     <inertial>
-      <!-- from new export (DH-corrected) -->
-      <origin xyz="-0.00025391 -0.01321 -0.0017485" rpy="0 0 0" />
-      <mass value="0.24589" />
+      <origin
+        xyz="0.00025391 0.01321 -0.0017485"
+        rpy="0 0 0" />
+      <mass
+        value="0.24589" />
       <inertia
         ixx="0.00013953"
         ixy="-2.1177E-06"
-        ixz="-1.9619E-07"
+        ixz="1.9619E-07"
         iyy="0.00015684"
-        iyz="1.2921E-06"
+        iyz="-1.2921E-06"
         izz="0.00018562" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link5.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link5.STL" />
       </geometry>
-      <material name="">
-        <color rgba="0 1 1 1" />
+      <material
+        name="">
+        <color
+          rgba="0 1 1 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/link5.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/link5.STL" />
       </geometry>
       <surface>
         <friction>
@@ -352,13 +442,18 @@
       </surface>
     </collision>
   </link>
-
-  <joint name="joint5" type="revolute">
-    <!-- origin from DH-corrected export -->
-    <origin xyz="0 -0.00062392 0.43999" rpy="-1.5708 0 0" />
-    <parent link="link4" />
-    <child link="link5" />
-    <axis xyz="0 0 1" />
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0 0 0.361"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="0 0 1" />
     <!-- B axis: ±135°, 550 °/s -->
     <limit
       lower="-2.35619"
@@ -367,34 +462,43 @@
       velocity="9.59931" />
     <dynamics damping="1.5" friction="0.3"/>
   </joint>
-
-  <!-- END-EFFECTOR LINK -->
-  <link name="EE">
+  <link
+    name="EE">
     <inertial>
-      <!-- from new export (DH-corrected) -->
-      <origin xyz="-2.3469E-05 3.8273E-05 -0.10091" rpy="0 0 0" />
-      <mass value="0.13667" />
+      <origin
+        xyz="-3.8273E-05 2.3469E-05 0.033407"
+        rpy="0 0 0" />
+      <mass
+        value="0.13667" />
       <inertia
-        ixx="5.3828E-05"
+        ixx="5.2643E-05"
         ixy="1.8623E-07"
-        ixz="3.6556E-08"
-        iyy="5.2643E-05"
-        iyz="-2.5485E-07"
+        ixz="-2.5485E-07"
+        iyy="5.3828E-05"
+        iyz="3.6556E-08"
         izz="5.4993E-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/EE.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/EE.STL" />
       </geometry>
-      <material name="">
-        <color rgba="1 0 0 1" />
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/EE.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/EE.STL" />
       </geometry>
       <surface>
         <friction>
@@ -403,13 +507,18 @@
       </surface>
     </collision>
   </link>
-
-  <joint name="joint6" type="continuous">
-    <!-- origin from DH-corrected export -->
-    <origin xyz="0 0 0" rpy="-1.5708 0 0" />
-    <parent link="link5" />
-    <child link="EE" />
-    <axis xyz="0 0 1" />
+  <joint
+    name="joint6"
+    type="continuous">
+    <origin
+      xyz="0 0.0675 0"
+      rpy="-1.5708 1.5708 0" />
+    <parent
+      link="link5" />
+    <child
+      link="EE" />
+    <axis
+      xyz="0 0 1" />
     <!-- T axis: ±360°, 1000 °/s -->
     <limit
       lower="-6.28318"
@@ -419,31 +528,41 @@
     <dynamics damping="0.8" friction="0.2"/>
   </joint>
 
-  <!-- FINGER 1 -->
-  <link name="finger1_link">
+  <link
+    name="finger1_link">
     <inertial>
-      <origin xyz="0.014816 -0.016407 -0.0019684" rpy="0 0 0" />
-      <mass value="0.0047666" />
+      <origin
+        xyz="0.014816 -0.016407 -0.0019684"
+        rpy="0 0 0" />
+      <mass
+        value="0.0047666" />
       <inertia
-        ixx="3.8954E-07"
-        ixy="-4.7932E-08"
-        ixz="6.1802E-09"
+        ixx="3.8953E-07"
+        ixy="-4.7926E-08"
+        ixz="6.1793E-09"
         iyy="8.1996E-07"
         iyz="5.3332E-08"
         izz="1.1669E-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/finger1_link.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/finger1_link.STL" />
       </geometry>
-      <material name="">
-        <color rgba="0 0 1 1" />
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
       </material>
     </visual>
     <!-- Primitive box collision for stable contacts -->
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
         <!-- approximate dimensions of finger -->
         <box size="0.015 0.01 0.04"/>
@@ -456,46 +575,61 @@
     </collision>
   </link>
 
-  <joint name="finger1_joint" type="revolute">
-    <!-- keep DH-corrected EE frame; use tuned axis/limits -->
-    <origin xyz="-0.0074919 0.012828 -0.1675" rpy="-1.5708 1.5621 1.5708" />
-    <parent link="EE" />
-    <child link="finger1_link" />
-    <!-- using axis from new export would be this: -->
-    <axis xyz="0.0012983 0.14877 0.98887" />
+  <joint
+    name="finger1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.012828 0.0074919 0.1"
+      rpy="1.5708 -1.5621 3.14" />
+    <parent
+      link="EE" />
+    <child
+      link="finger1_link" />
+    <axis
+      xyz="0 1 0" />
     <limit
-      lower="-1"
-      upper="0.5"
+      lower="-0.7"
+      upper="0.7"
       effort="10"
       velocity="2.0" />
     <dynamics damping="0.3" friction="0.1"/>
   </joint>
 
-  <!-- FINGER 2 -->
-  <link name="finger2_link">
+  <link
+    name="finger2_link">
     <inertial>
-      <origin xyz="0.01644 0.012607 -0.0063313" rpy="0 0 0" />
-      <mass value="0.0047666" />
+      <origin
+        xyz="0.0164405516950697 0.0126063952456568 -0.00633123580787176"
+        rpy="0 0 0" />
+      <mass
+        value="0.00476659381411143" />
       <inertia
-        ixx="4.2266E-07"
-        ixy="1.255E-07"
-        ixz="-1.9868E-08"
-        iyy="7.8764E-07"
-        iyz="5.8423E-08"
-        izz="1.1661E-06" />
+        ixx="4.22662847435983E-07"
+        ixy="1.25500043079123E-07"
+        ixz="-1.98688342991039E-08"
+        iyy="7.87633926369506E-07"
+        iyz="5.84231471953572E-08"
+        izz="1.16605068363655E-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://gp7_robot/meshes/finger2_link.STL" />
+        <mesh
+          filename="package://gp7_robot/meshes/finger2_link.STL" />
       </geometry>
-      <material name="">
-        <color rgba="0 0 1 1" />
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
       </material>
     </visual>
     <!-- Primitive box collision for stable contacts -->
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
       <geometry>
         <!-- approximate dimensions of finger -->
         <box size="0.015 0.01 0.04"/>
@@ -507,16 +641,21 @@
       </surface>
     </collision>
   </link>
-
-  <joint name="finger2_joint" type="revolute">
-    <!-- keep DH-corrected EE frame; use tuned limits -->
-    <origin xyz="-0.0033856 -0.014465 -0.1675" rpy="-1.5708 1.5621 1.5708" />
-    <parent link="EE" />
-    <child link="finger2_link" />
-    <axis xyz="-0.0012983 -0.14877 -0.98887" />
+  <joint
+    name="finger2_joint"
+    type="revolute">
+    <origin
+      xyz="0.014465 0.0033856 0.1"
+      rpy="1.5708 -1.5621 3.14" />
+    <parent
+      link="EE" />
+    <child
+      link="finger2_link" />
+    <axis
+      xyz="0 -1 0" />
     <limit
-      lower="-1"
-      upper="0.5"
+      lower="-0.7" 
+      upper="0.7"
       effort="10"
       velocity="2.0" />
     <dynamics damping="0.3" friction="0.1"/>
@@ -529,5 +668,4 @@
   <gazebo reference="finger2_link">
     <self_collide>true</self_collide>
   </gazebo>
-
 </robot>
