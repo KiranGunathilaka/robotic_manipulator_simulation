@@ -79,7 +79,9 @@ def generate_launch_description():
             '-y', '0.0',
             '-z', '0.0',
             '-Y', '0.0'
-        ]
+        ],
+        respawn=True,
+        respawn_delay=1.0
     )
 
     return LaunchDescription([

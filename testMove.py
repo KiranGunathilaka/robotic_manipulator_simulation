@@ -16,7 +16,7 @@ class TestMove(Node):
 
         p = JointTrajectoryPoint()
         p.positions = [0.0, -0.5, 0.5, 0.0, 0.0, 0.0]
-        p.time_from_start.sec = 3
+        p.time_from_start.sec = 1
         msg.points.append(p)
 
         self.pub.publish(msg)

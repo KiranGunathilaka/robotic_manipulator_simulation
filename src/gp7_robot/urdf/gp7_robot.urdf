@@ -16,6 +16,11 @@
     </plugin>
   </gazebo>
 
+  <!-- Global Gazebo settings for better contacts -->
+  <gazebo>
+    <collision_detector>bullet</collision_detector>
+  </gazebo>
+
   <ros2_control name="GazeboSimSystem" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
@@ -51,6 +56,18 @@
       <state_interface name="effort"/>
     </joint>
     <joint name="joint6">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="finger1_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="finger2_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -95,6 +112,7 @@
           rgba="1 0 0 1" />
       </material>
     </visual>
+    <!-- Use mesh as approximate convex collision -->
     <collision>
       <origin
         xyz="0 0 0"
@@ -103,8 +121,14 @@
         <mesh
           filename="package://gp7_robot/meshes/base_link.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.0" mu2="1.0"/>
+        </friction>
+      </surface>
     </collision>
   </link>
+
   <link
     name="link1">
     <inertial>
@@ -143,8 +167,14 @@
         <mesh
           filename="package://gp7_robot/meshes/link1.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.0" mu2="1.0"/>
+        </friction>
+      </surface>
     </collision>
   </link>
+
   <joint
     name="joint1"
     type="revolute">
@@ -161,9 +191,11 @@
     <limit
       lower="-2.96706"
       upper="2.96706"
-      effort="0"
+      effort="200"
       velocity="6.54499" />
+    <dynamics damping="3.0" friction="0.5"/>
   </joint>
+
   <link
     name="link2">
     <inertial>
@@ -202,8 +234,14 @@
         <mesh
           filename="package://gp7_robot/meshes/link2.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.0" mu2="1.0"/>
+        </friction>
+      </surface>
     </collision>
   </link>
+
   <joint
     name="joint2"
     type="revolute">
@@ -220,9 +258,11 @@
     <limit
       lower="-1.13446"
       upper="2.53073"
-      effort="0"
+      effort="200"
       velocity="5.49779" />
+    <dynamics damping="3.0" friction="0.5"/>
   </joint>
+
   <link
     name="link3">
     <inertial>
@@ -261,8 +301,14 @@
         <mesh
           filename="package://gp7_robot/meshes/link3.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.0" mu2="1.0"/>
+        </friction>
+      </surface>
     </collision>
   </link>
+
   <joint
     name="joint3"
     type="revolute">
@@ -274,14 +320,16 @@
     <child
       link="link3" />
     <axis
-      xyz="0 0 1" />
+      xyz="-0 -0 -1" />
     <!-- U axis: +190° / -70°, 410 °/s -->
     <limit
       lower="-1.22173"
       upper="3.31613"
-      effort="0"
+      effort="200"
       velocity="7.15585" />
+    <dynamics damping="3.0" friction="0.5"/>
   </joint>
+
   <link
     name="link4">
     <inertial>
@@ -320,8 +368,14 @@
         <mesh
           filename="package://gp7_robot/meshes/link4.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.0" mu2="1.0"/>
+        </friction>
+      </surface>
     </collision>
   </link>
+
   <joint
     name="joint4"
     type="revolute">
@@ -338,9 +392,11 @@
     <limit
       lower="-3.31613"
       upper="3.31613"
-      effort="0"
+      effort="17"
       velocity="9.59931" />
+    <dynamics damping="1.5" friction="0.3"/>
   </joint>
+
   <link
     name="link5">
     <inertial>
@@ -379,6 +435,11 @@
         <mesh
           filename="package://gp7_robot/meshes/link5.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.0" mu2="1.0"/>
+        </friction>
+      </surface>
     </collision>
   </link>
   <joint
@@ -397,8 +458,9 @@
     <limit
       lower="-2.35619"
       upper="2.35619"
-      effort="0"
+      effort="17"
       velocity="9.59931" />
+    <dynamics damping="1.5" friction="0.3"/>
   </joint>
   <link
     name="EE">
@@ -427,7 +489,7 @@
       <material
         name="">
         <color
-          rgba="0.6 0.6 0.6 1" />
+          rgba="1 0 0 1" />
       </material>
     </visual>
     <collision>
@@ -438,6 +500,11 @@
         <mesh
           filename="package://gp7_robot/meshes/EE.STL" />
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.0" mu2="1.0"/>
+        </friction>
+      </surface>
     </collision>
   </link>
   <joint
@@ -445,14 +512,22 @@
     type="continuous">
     <origin
       xyz="0 0.0675 0"
-      rpy="1.5708 -1.5708 0" />
+      rpy="-1.5708 1.5708 0" />
     <parent
       link="link5" />
     <child
       link="EE" />
     <axis
       xyz="0 0 1" />
+    <!-- T axis: ±360°, 1000 °/s -->
+    <limit
+      lower="-6.28318"
+      upper="6.28318"
+      effort="10"
+      velocity="17.4533" />
+    <dynamics damping="0.8" friction="0.2"/>
   </joint>
+
   <link
     name="finger1_link">
     <inertial>
@@ -480,37 +555,46 @@
       <material
         name="">
         <color
-          rgba="0.4 0.4 0.4 1" />
+          rgba="0 0 1 1" />
       </material>
     </visual>
+    <!-- Primitive box collision for stable contacts -->
     <collision>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gp7_robot/meshes/finger1_link.STL" />
+        <!-- approximate dimensions of finger -->
+        <box size="0.015 0.01 0.04"/>
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.2" mu2="1.2"/>
+        </friction>
+      </surface>
     </collision>
   </link>
+
   <joint
     name="finger1_joint"
     type="revolute">
     <origin
       xyz="-0.012828 0.0074919 0.1"
-      rpy="1.5708 -1.5621 -3.1416" />
+      rpy="1.5708 -1.5621 3.14" />
     <parent
       link="EE" />
     <child
       link="finger1_link" />
     <axis
-      xyz="0.0012983 0.14877 0.98887" />
+      xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      lower="-0.7"
+      upper="0.7"
+      effort="10"
+      velocity="2.0" />
+    <dynamics damping="0.3" friction="0.1"/>
   </joint>
+
   <link
     name="finger2_link">
     <inertial>
@@ -538,17 +622,23 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0 0 1 1" />
       </material>
     </visual>
+    <!-- Primitive box collision for stable contacts -->
     <collision>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://gp7_robot/meshes/finger2_link.STL" />
+        <!-- approximate dimensions of finger -->
+        <box size="0.015 0.01 0.04"/>
       </geometry>
+      <surface>
+        <friction>
+          <ode mu="1.2" mu2="1.2"/>
+        </friction>
+      </surface>
     </collision>
   </link>
   <joint
@@ -556,17 +646,26 @@
     type="revolute">
     <origin
       xyz="0.014465 0.0033856 0.1"
-      rpy="1.5708 -1.5621 -3.1416" />
+      rpy="1.5708 -1.5621 3.14" />
     <parent
       link="EE" />
     <child
       link="finger2_link" />
     <axis
-      xyz="0.0012983 0.14877 0.98887" />
+      xyz="0 -1 0" />
     <limit
-      lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      lower="-0.7" 
+      upper="0.7"
+      effort="10"
+      velocity="2.0" />
+    <dynamics damping="0.3" friction="0.1"/>
   </joint>
+
+  <!-- Enable self-collision for fingers so they can't pass through each other -->
+  <gazebo reference="finger1_link">
+    <self_collide>true</self_collide>
+  </gazebo>
+  <gazebo reference="finger2_link">
+    <self_collide>true</self_collide>
+  </gazebo>
 </robot>
