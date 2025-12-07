@@ -69,18 +69,18 @@ class PickPlaceController(Node):
         self.get_logger().info(f'  Manipulability: {manipulability:.4f}')
         
         if is_singular:
-            self.get_logger().warn(f'  ⚠ WARNING: Configuration near singularity!')
+            self.get_logger().warn(f'  WARNING: Configuration near singularity!')
         
         if expected_pos is not None:
             error = np.linalg.norm(actual_pos - expected_pos)
             self.get_logger().info(f'  Position error: {error:.4f} m ({error*1000:.2f} mm)')
             
             if error > 0.01:
-                self.get_logger().warn(f'  ⚠ Warning: Position error exceeds 10mm!')
+                self.get_logger().warn(f'  Warning: Position error exceeds 10mm!')
             else:
-                self.get_logger().info(f'  ✓ Position within acceptable tolerance')
+                self.get_logger().info(f'  Position within acceptable tolerance')
     
-    def move_to_joint_config(self, target_joints, duration=3.0):
+    def move_to_joint_config(self, target_joints, duration=1.0):
         """Execute movement to target joint configuration"""
         # Create message EXACTLY like test code
         msg = JointTrajectory()
@@ -102,11 +102,12 @@ class PickPlaceController(Node):
         self.get_logger().info(f'  ✓ Published to /arm_controller/joint_trajectory')
         self.get_logger().info('-' * 70)
     
-    def move_to_cartesian(self, target_pos, duration=3.0, current_joints=None):
+    def move_to_cartesian(self, target_pos, duration=3.0, current_joints=None, 
+                          vertical_motion=False):
         """Move to Cartesian position maintaining upright orientation"""
         if current_joints is None:
             # Safe default starting configuration (avoid singularities)
-            current_joints = [0.0, -0.5, 0.5, 0.0, 0.5, 0.0]
+            current_joints = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         
         self.get_logger().info('-' * 70)
         self.get_logger().info(f'Target Cartesian position:')
@@ -115,7 +116,17 @@ class PickPlaceController(Node):
         self.get_logger().info(f'  Z: {target_pos[2]:.4f} m')
         
         # Compute inverse kinematics
-        target_joints = self.kinematics.inverse_kinematics_upright(target_pos, current_joints)
+        if vertical_motion:
+            # Use vertical motion IK (locks base joint)
+            self.get_logger().info('  Using vertical motion IK (base locked)...')
+            target_joints = self.kinematics.inverse_kinematics_vertical_motion(
+                target_pos, current_joints
+            )
+        else:
+            # Use standard IK with minimal motion preference
+            target_joints = self.kinematics.inverse_kinematics_upright(
+                target_pos, current_joints
+            )
         
         self.print_joint_angles(target_joints, "Computed IK Solution")
         self.verify_fk(target_joints, target_pos)
@@ -144,13 +155,13 @@ class PickPlaceController(Node):
         
         point = JointTrajectoryPoint()
         if close:
-            # Close gripper (both fingers move inward)
-            point.positions = [-0.3, -0.3]  # Adjust based on actual limits
-            self.get_logger().info('  🤏 Closing gripper...')
+            # Close gripper 
+            point.positions = [0.3, 0.3] 
+            self.get_logger().info('  Closing gripper...')
         else:
             # Open gripper
-            point.positions = [0.3, 0.3]
-            self.get_logger().info('  ✋ Opening gripper...')
+            point.positions = [-0.7, -0.7]
+            self.get_logger().info('  Opening gripper...')
         
         point.time_from_start.sec = int(duration)
         point.time_from_start.nanosec = int((duration % 1) * 1e9)
@@ -164,64 +175,72 @@ class PickPlaceController(Node):
         self.get_logger().info('STARTING PICK AND PLACE SEQUENCE')
         self.get_logger().info('=' * 70 + '\n')
         
-        # Start from SAFE home position (NOT all zeros - that's a singularity!)
-        home_joints = [0.0, -0.5, 0.5, 0.0, 0.5, 0.0]
+        # Start from SAFE home position 
+        home_joints = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         current_joints = home_joints
         
         # Step 1: Move to home position
         self.get_logger().info('\n### STEP 1: Moving to home position ###')
-        self.move_to_joint_config(home_joints, duration=3.0)
-        time.sleep(4.0)
+        self.move_to_joint_config(home_joints, duration=1.0)
+        time.sleep(14.0)
         
         # Step 2: Move above Box B
         above_box_b = self.box_b_pos + np.array([0, 0, self.clearance_height])
         self.get_logger().info('\n### STEP 2: Moving above Box B ###')
-        current_joints = self.move_to_cartesian(above_box_b, duration=4.0, current_joints=current_joints)
-        time.sleep(5.0)
+        current_joints = self.move_to_cartesian(above_box_b, duration=1.0, current_joints=current_joints)
+        time.sleep(15.0)
         
         # Step 3: Lower to grasp Box B
         grasp_offset = 0.02  # Account for gripper size
         grasp_pos = self.box_b_pos + np.array([0, 0, 0.05 + grasp_offset])
         self.get_logger().info('\n### STEP 3: Lowering to grasp Box B ###')
-        current_joints = self.move_to_cartesian(grasp_pos, duration=3.0, current_joints=current_joints)
-        time.sleep(4.0)
+        current_joints = self.move_to_cartesian(
+            grasp_pos, duration=1.0, current_joints=current_joints, vertical_motion=True
+        )
+        time.sleep(14.0)
         
         # Step 4: Close gripper (simulate - actual gripper control would go here)
         self.get_logger().info('\n### STEP 4: Closing gripper ###')
         self.control_gripper(close=True, duration=1.0)
-        time.sleep(2.0)
+        time.sleep(12.0)
         
         # Step 5: Lift Box B
         self.get_logger().info('\n### STEP 5: Lifting Box B ###')
-        current_joints = self.move_to_cartesian(above_box_b, duration=3.0, current_joints=current_joints)
-        time.sleep(4.0)
+        current_joints = self.move_to_cartesian(
+            above_box_b, duration=1.0, current_joints=current_joints, vertical_motion=True
+        )
+        time.sleep(14.0)
         
         # Step 6: Move above Box A
         above_box_a = self.box_a_top + np.array([0, 0, self.clearance_height])
         self.get_logger().info('\n### STEP 6: Moving above Box A ###')
-        current_joints = self.move_to_cartesian(above_box_a, duration=4.0, current_joints=current_joints)
-        time.sleep(5.0)
+        current_joints = self.move_to_cartesian(above_box_a, duration=1.0, current_joints=current_joints)
+        time.sleep(15.0)
         
         # Step 7: Lower to place on Box A
         place_pos = self.box_a_top + np.array([0, 0, grasp_offset])
         self.get_logger().info('\n### STEP 7: Lowering to place on Box A ###')
-        current_joints = self.move_to_cartesian(place_pos, duration=3.0, current_joints=current_joints)
-        time.sleep(4.0)
+        current_joints = self.move_to_cartesian(
+            place_pos, duration=1.0, current_joints=current_joints, vertical_motion=True
+        )
+        time.sleep(14.0)
         
         # Step 8: Open gripper
         self.get_logger().info('\n### STEP 8: Opening gripper ###')
         self.control_gripper(close=False, duration=1.0)
-        time.sleep(2.0)
+        time.sleep(12.0)
         
         # Step 9: Retract
         self.get_logger().info('\n### STEP 9: Retracting ###')
-        current_joints = self.move_to_cartesian(above_box_a, duration=3.0, current_joints=current_joints)
-        time.sleep(4.0)
+        current_joints = self.move_to_cartesian(
+            above_box_a, duration=1.0, current_joints=current_joints, vertical_motion=True
+        )
+        time.sleep(14.0)
         
         # Step 10: Return to home
         self.get_logger().info('\n### STEP 10: Returning to home ###')
-        self.move_to_joint_config(home_joints, duration=4.0)
-        time.sleep(5.0)
+        self.move_to_joint_config(home_joints, duration=1.0)
+        time.sleep(15.0)
         
         self.get_logger().info('\n' + '=' * 70)
         self.get_logger().info('✓ PICK AND PLACE SEQUENCE COMPLETE!')
