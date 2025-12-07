@@ -1,12 +1,15 @@
 controller_manager:
   ros__parameters:
-    update_rate: 250   # Hz
+    update_rate: 100  # Hz
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
     arm_controller:
-      type: "joint_trajectory_controller/JointTrajectoryController"
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
 arm_controller:
   ros__parameters:
@@ -17,22 +20,70 @@ arm_controller:
       - joint4
       - joint5
       - joint6
-
+    
     command_interfaces:
       - position
-
+    
     state_interfaces:
       - position
       - velocity
-
+    
     state_publish_rate: 50.0
     action_monitor_rate: 20.0
-
+    
     allow_partial_joints_goal: false
-    interpolate_from_desired_state: true
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+    
     constraints:
-      stopped_velocity_tolerance: 0.01
-      goal_time: 0.0
+      stopped_velocity_tolerance: 0.1
+      goal_time: 0.5
+      
       joint1:
+        trajectory: 0.1
+        goal: 0.05
+      joint2:
+        trajectory: 0.1
+        goal: 0.05
+      joint3:
+        trajectory: 0.1
+        goal: 0.05
+      joint4:
+        trajectory: 0.1
+        goal: 0.05
+      joint5:
+        trajectory: 0.1
+        goal: 0.05
+      joint6:
+        trajectory: 0.1
+        goal: 0.05
+
+gripper_controller:
+  ros__parameters:
+    joints:
+      - finger1_joint
+      - finger2_joint
+    
+    command_interfaces:
+      - position
+    
+    state_interfaces:
+      - position
+      - velocity
+    
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+    
+    allow_partial_joints_goal: false
+    open_loop_control: true
+    
+    constraints:
+      stopped_velocity_tolerance: 0.1
+      goal_time: 0.3
+      
+      finger1_joint:
         trajectory: 0.05
-        goal: 0.03
+        goal: 0.02
+      finger2_joint:
+        trajectory: 0.05
+        goal: 0.02

@@ -90,7 +90,7 @@ def generate_launch_description():
         output='screen'
     )
 
-    # Spawn arm_controller (delay to ensure joint_state_broadcaster is loaded first)
+    # Spawn arm_controller
     arm_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
@@ -101,9 +101,29 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Spawn gripper_controller
+    gripper_controller_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            'gripper_controller',
+            '--controller-manager', '/controller_manager'
+        ],
+        output='screen'
+    )
+
+    # --- Pick and Place Controller Node ---
+    pick_place_controller_node = Node(
+        package='gp7_robot',
+        executable='pick_place_controller',
+        name='pick_place_controller',
+        output='screen',
+        emulate_tty=True,
+    )
+
     # --- Event Handlers for Sequential Loading ---
-    # Load arm_controller after robot is spawned
-    load_arm_controller = RegisterEventHandler(
+    # Step 1: Load joint_state_broadcaster after robot is spawned
+    load_joint_state_broadcaster = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=spawn_robot_node,
             on_exit=[
@@ -115,8 +135,8 @@ def generate_launch_description():
         )
     )
 
-    # Load arm_controller after joint_state_broadcaster
-    load_joint_state_broadcaster = RegisterEventHandler(
+    # Step 2: Load arm_controller after joint_state_broadcaster
+    load_arm_controller = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=joint_state_broadcaster_spawner,
             on_exit=[
@@ -128,12 +148,40 @@ def generate_launch_description():
         )
     )
 
+    # Step 3: Load gripper_controller after arm_controller
+    load_gripper_controller = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=arm_controller_spawner,
+            on_exit=[
+                TimerAction(
+                    period=1.0,  # Wait 1 second
+                    actions=[gripper_controller_spawner]
+                )
+            ]
+        )
+    )
+
+    # Step 4: Start pick and place controller after all controllers are loaded
+    start_pick_place = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=gripper_controller_spawner,
+            on_exit=[
+                TimerAction(
+                    period=3.0,  # Wait 3 seconds for controllers to stabilize
+                    actions=[pick_place_controller_node]
+                )
+            ]
+        )
+    )
+
     return LaunchDescription([
         use_sim_time_arg,
         gz_server,
         robot_state_publisher_node,
         static_tf_node,
         spawn_robot_node,
-        load_arm_controller,
         load_joint_state_broadcaster,
+        load_arm_controller,
+        load_gripper_controller,
+        start_pick_place,
     ])
